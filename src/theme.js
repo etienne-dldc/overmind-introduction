@@ -1,3 +1,4 @@
+import { Provider } from './utils/DeckCtx';
 import base from 'mdx-deck/themes';
 
 const blue = '#0af';
@@ -22,4 +23,5 @@ export default {
   quote: {
     fontWeight: 600,
   },
+  Provider,
 };
