@@ -1,4 +1,4 @@
-import React, { createContext, useMemo } from 'react';
+import { createContext } from 'react';
 
 // index: (number) the current slide index
 // length: (number) the length of the slides array
@@ -14,10 +14,5 @@ export const MODES = {
 };
 
 const DeckCtx = createContext();
-
-export const Provider = ({ children, index, length, mode, metadata, step, update }) => {
-  const ctxObj = useMemo(() => ({ index, length, mode, metadata, step, update }), [index, length, mode, step]);
-  return <DeckCtx.Provider value={ctxObj}>{children}</DeckCtx.Provider>;
-};
 
 export default DeckCtx;

@@ -1,4 +1,4 @@
-import { Provider } from './utils/DeckCtx';
+import Provider from './components/Provider';
 import base from 'mdx-deck/themes';
 
 const blue = '#0af';
