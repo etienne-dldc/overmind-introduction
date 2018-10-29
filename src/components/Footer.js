@@ -26,6 +26,7 @@ const Footer = () => {
         length={deckState.length}
         onClick={index => deckState.update({ index })}
       />
+      <a href="https://paris-ts.etienne-dot-js.com/presentation.pdf">Download as PDF</a>
     </Bottom>
   );
 };
