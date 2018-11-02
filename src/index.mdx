@@ -1,16 +1,67 @@
-export { default as theme } from './theme.js';
+export { default as theme } from './theme';
 import OvermindLogo from './components/OvermindLogo';
-import { Head } from 'mdx-deck'
+import { Head, Appear } from 'mdx-deck'
+import Quote from './components/Quote';
+import Soon from './components/Soon';
+import Link from './components/Link';
+import InfoPart, {InfoLink} from './components/InfoPart';
+import PrezLink, { HttpsPart } from './components/PrezLink';
 
 <Head>
   <title>Overmind - TypeScript Paris - Etienne Dldc</title>
   <meta name='og:image' content='https://paris-ts.etienne-dot-js.com/card.png' />
 </Head>
 
-<OvermindLogo size="50vh" />
+# Hi 👋
+
+<Appear>
+  <PrezLink href="https://paris-ts.etienne-dot-js.com"><HttpsPart>https://</HttpsPart>paris-ts.etienne-dot-js.com</PrezLink>
+
+</Appear>
 
 ---
+
+<div style={{ position: 'relative' }}>
+  <OvermindLogo size="50vh" />
+  <Appear><Soon /></Appear>
+</div>
+
+---
+
 # About Me
+
+<Appear>
+  <InfoPart>✋ I'm Etienne</InfoPart>
+  <InfoPart>👨‍🎓 Master degree at Gobelins</InfoPart>
+  <InfoPart>⚛ React trainer & consultant <InfoLink href="https://twitter.com/LeReacteurIO">@LeReacteurIO</InfoLink></InfoPart>
+  <InfoPart>🖥 Freelance</InfoPart>
+  <InfoPart><InfoLink href="https://twitter.com/Etienne_dot_js">🐦 @Etienne_dot_js</InfoLink></InfoPart>
+</Appear>
+
+---
+
+<div style={{ position: 'relative' }}>
+  <OvermindLogo size="50vh" />
+  <Appear>
+    <Soon />
+  </Appear>
+</div>
+
+---
+
+# Mental model
+
+<Appear>
+  <Quote author="Wikipedia">
+    A mental model is a representation of the surrounding world, the relationships between its various parts and a person's intuitive perception about his or her own acts and their consequences.
+  </Quote>
+</Appear>
+
+---
+# BTW
+
+CRA 2.1 add support for TS ✨
+
 ---
 ```jsx
 <CodeSnippet />

@@ -6,7 +6,6 @@ import { space, color } from 'styled-system';
 import Flex from './Flex';
 
 const Dot = styled.button(
-  [],
   {
     appearance: 'none',
     border: '4px solid transparent',
