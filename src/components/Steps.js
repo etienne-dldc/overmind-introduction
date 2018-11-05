@@ -21,6 +21,9 @@ class Steps extends React.Component {
           const steps = children.length - 1;
 
           const showItem = index => {
+            if (deckState.isPrint) {
+              return index === steps;
+            }
             if (deckState.mode === constants.modes.grid) {
               return index === steps;
             }

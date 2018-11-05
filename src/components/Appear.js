@@ -20,6 +20,9 @@ class Appear extends React.Component {
           const { step, mode, index: slideIndex } = this.props.deck;
 
           const showItem = index => {
+            if (deckState.isPrint) {
+              return true;
+            }
             if (deckState.mode === constants.modes.grid) {
               return true;
             }

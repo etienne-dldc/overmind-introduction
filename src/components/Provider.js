@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import DeckCtx, { modes } from '../utils/DeckCtx';
 import Footer from './Footer';
 
@@ -7,7 +7,22 @@ import Footer from './Footer';
 // require('@blueprintjs/core/lib/css/blueprint.css');
 
 const Provider = ({ children, index, length, mode, metadata, step, update }) => {
-  const ctxObj = useMemo(() => ({ index, length, mode, metadata, step, update }), [index, length, mode, step]);
+  const [isPrint, setIsPrint] = useState(false);
+  useEffect(() => {
+    window.onbeforeprint = function() {
+      setIsPrint(true);
+    };
+    window.onafterprint = function() {
+      setIsPrint(false);
+    };
+  }, []);
+  const ctxObj = useMemo(() => ({ index, length, mode, metadata, step, update, isPrint }), [
+    index,
+    length,
+    mode,
+    step,
+    isPrint,
+  ]);
   return (
     <DeckCtx.Provider value={ctxObj}>
       {children}
