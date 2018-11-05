@@ -4,10 +4,10 @@
   "description": "Slides for my Paris TypeScript talk about Overmind JS",
   "main": "index.js",
   "scripts": {
-    "start": "mdx-deck src/index.mdx",
-    "build": "mdx-deck build src/index.mdx",
-    "pdf": "mdx-deck pdf src/index.mdx",
-    "screenshot": "mdx-deck screenshot src/index.mdx",
+    "start": "mdx-deck src/index.js",
+    "build": "mdx-deck build src/index.js",
+    "pdf": "mdx-deck pdf src/index.js",
+    "screenshot": "mdx-deck screenshot src/index.js",
     "build:all": "rimraf dist && yarn build && yarn pdf && yarn screenshot",
     "deploy": "yarn build:all && tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./dist/* && npx captainduckduck deploy -t ./deploy.tar"
   },
@@ -25,16 +25,23 @@
   "devDependencies": {
     "@types/styled-system": "^3.0.6",
     "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.5.3",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.6.2",
     "typescript": "^3.1.6"
   },
   "dependencies": {
     "@types/react": "^16.4.18",
     "@types/styled-components": "^4.0.3",
+    "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
+    "preloader": "^4.0.2",
     "react": "16.7.0-alpha.0",
     "react-dom": "16.7.0-alpha.0",
+    "style-loader": "^0.23.1",
     "styled-components": "^4.0.3",
-    "styled-system": "^3.1.11"
+    "styled-system": "^3.1.11",
+    "url-loader": "^1.1.2"
   },
   "resolutions": {
     "react": "16.7.0-alpha.0",
