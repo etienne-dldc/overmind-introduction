@@ -1,7 +1,7 @@
 import { Derive } from "overmind";
 
 const todoCount: Derive<number> = state =>
-  state.todos.lendth;
+  state.todos.length;
 
 type State = {
   todos: Array<Todo>;
