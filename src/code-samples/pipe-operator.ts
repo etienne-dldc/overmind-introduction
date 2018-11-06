@@ -5,7 +5,7 @@ function pipe(...operators) {
       // run each operator one after the other
       // if an operator return a Promise
       // wait for the Promise to resolve (or reject)
-      // befoore moving to the next
+      // before moving to the next
     }
   };
 }
