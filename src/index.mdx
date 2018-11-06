@@ -165,9 +165,28 @@ import imgVersions from './images/versions.png';
 
 <Appear>
   <Text>Just mutate the state</Text>
+  <Code>state.isLoading = true</Code>
   <Text>Uses Proxy under the hood to track changes</Text>
   <Text>Can't mutate outside of an action</Text>
 </Appear>
+
+---
+
+<CodeSurfer
+  neverFast={true}
+  title={() => <Title>Action</Title>}
+  code={require("!raw-loader!./code-samples/simple-action.ts")}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[
+    {},
+    { range: [1, 5] },
+    { range: [6, 9] },
+    { lines: [12, 13] },
+    {}
+  ]}
+/>
 
 ---
 
@@ -209,8 +228,8 @@ import imgVersions from './images/versions.png';
     <MdxCode className="language-typescript" >{`type Operator<Input, Output = Input> = (
   err: Error,
   value: Input,
-  next: (err: Error, value: Output),
-  final: (err: Error, value: Output)
+  next: (err: Error, value: Output) => void,
+  final: (err: Error, value: Output) => void
 ) => void`}</MdxCode>
   </div>
 </Steps>
@@ -219,7 +238,7 @@ import imgVersions from './images/versions.png';
 
 <Title>Pipe Action</Title>
 
-<SubTitle>Operations</SubTitle>
+<SubTitle>Operators</SubTitle>
 
 <Appear>
   <Text>Mutate</Text>
@@ -230,6 +249,30 @@ import imgVersions from './images/versions.png';
   <Text>Debounce</Text>
   <Text>...</Text>
 </Appear>
+
+---
+
+<Title>Pipe Action</Title>
+
+<SubTitle>Operators</SubTitle>
+
+<MdxCode className="language-typescript">{
+`const mutate = (
+  doMutation: (context: Context) => void
+): Operator => {
+  // ...
+}`}</MdxCode>
+
+---
+
+<Title>Pipe Action</Title>
+
+<SubTitle>Operators</SubTitle>
+
+<MdxCode className="language-typescript">{
+`const setIsLoading = mutate(({ state, value }) => {
+  state.isLoading = value
+})`}</MdxCode>
 
 ---
 
@@ -244,8 +287,7 @@ import imgVersions from './images/versions.png';
     {},
     { lines: [1, 11] },
     { lines: [2, 10] },
-    { lines: [3] },
-    { range: [4, 9] },
+    { range: [5, 8] },
     {}
   ]}
 />
@@ -261,13 +303,8 @@ import imgVersions from './images/versions.png';
   dark={true}
   steps={[
     {},
-    { lines: [1, 8] },
-    { lines: [2] },
-    { lines: [3] },
-    { lines: [4] },
-    { lines: [5] },
-    { lines: [6] },
-    { lines: [7] },
+    { lines: [1, 6] },
+    { range: [2, 5] },
     {}
   ]}
 />
@@ -301,7 +338,7 @@ import imgVersions from './images/versions.png';
 
 ---
 
-<Title>Do we have time for the API ?</Title>
+<Title>Do we have time for more API ?</Title>
 
 <GoTo>{({ update, setTimeMode }) => (
   <Button onClick={() => {
@@ -326,11 +363,11 @@ import imgVersions from './images/versions.png';
 <GoTo>{({ update, setTimeMode }) => (
   <Button danger onClick={() => {
     setTimeMode(TIME_MODE.fast)
-    update({ index: 31 })
+    update({ index: 34 })
     if (document.activeElement) {
       document.activeElement.blur()
     }
-  }}>Hell No</Button>
+  }}>Hell No !</Button>
 )}</GoTo>
 
 ---
