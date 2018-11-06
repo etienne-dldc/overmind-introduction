@@ -8,6 +8,25 @@ export const Text = styled.p({
   margin: '0.5em',
 });
 
+export const Button = styled.button(
+  {
+    fontSize: '1.2em',
+    fontWeight: 300,
+    letterSpacing: '0.05em',
+    margin: '0.5em',
+    padding: '0.5em 1em',
+    border: 'none',
+    cursor: 'pointer',
+    borderRadius: '0.3em',
+  },
+  props => ({
+    background: props.warning ? '#FFA726' : props.danger ? '#EF5350' : '#42A5F5',
+    '&:hover': {
+      background: props.warning ? '#F57C00' : props.danger ? '#D32F2F' : '#1976D2',
+    },
+  })
+);
+
 export const Link = styled.a({
   textDecoration: 'none',
   color: '#2196F3',

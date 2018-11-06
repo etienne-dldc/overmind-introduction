@@ -1,5 +1,6 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import DeckCtx, { modes } from '../utils/DeckCtx';
+import TimeModeCtx, { TIME_MODE } from '../utils/TimeModeCtx';
 import Footer from './Footer';
 
 // require('normalize.css/normalize.css');
@@ -8,6 +9,7 @@ import Footer from './Footer';
 
 const Provider = ({ children, index, length, mode, metadata, step, update }) => {
   const [isPrint, setIsPrint] = useState(false);
+  const [timeMode, setTimeMode] = useState(TIME_MODE.normal);
   useEffect(() => {
     window.onbeforeprint = function() {
       setIsPrint(true);
@@ -23,11 +25,14 @@ const Provider = ({ children, index, length, mode, metadata, step, update }) => 
     step,
     isPrint,
   ]);
+  const timeCtxObj = useMemo(() => ({ timeMode, setTimeMode }), [timeMode, setTimeMode]);
   return (
-    <DeckCtx.Provider value={ctxObj}>
-      {children}
-      <Footer />
-    </DeckCtx.Provider>
+    <TimeModeCtx.Provider value={timeCtxObj}>
+      <DeckCtx.Provider value={ctxObj}>
+        {children}
+        <Footer />
+      </DeckCtx.Provider>
+    </TimeModeCtx.Provider>
   );
 };
 

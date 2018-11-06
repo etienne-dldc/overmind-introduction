@@ -45,6 +45,9 @@ export const Dots = ({ index, length, onClick, ...props }) => (
         title={'go to: ' + i}
         onClick={e => {
           onClick(i);
+          if (document.activeElement) {
+            document.activeElement.blur();
+          }
         }}
       />
     ))}

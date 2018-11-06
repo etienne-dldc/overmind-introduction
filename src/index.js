@@ -1,5 +1,13 @@
 import deck from './index.mdx';
 export { default as theme } from './theme';
+
+import { registerLanguage } from 'react-syntax-highlighter/prism-light';
+import typescript from 'react-syntax-highlighter/languages/prism/typescript';
+import tsx from 'react-syntax-highlighter/languages/prism/tsx';
+
+registerLanguage('typescript', typescript);
+registerLanguage('tsx', tsx);
+
 // import * as MdxDeck from 'mdx-deck';
 // console.log(MdxDeck);
 import imgDevtool1 from './images/devtool-01.png';

@@ -1,5 +1,5 @@
 import OvermindLogo from './components/OvermindLogo';
-import { Head, Notes } from 'mdx-deck'
+import { Head, Notes, Code as MdxCode, updaters } from 'mdx-deck'
 import Quote from './components/Quote';
 import Appear from './components/Appear';
 import Steps from './components/Steps';
@@ -7,10 +7,12 @@ import Soon from './components/Soon';
 import Pipe from './components/Pipe';
 import Pipes from './components/Pipes';
 import Image from './components/Image';
+import GoTo from './components/GoTo';
 import CodeSurfer from './components/CodeSurfer';
-import { Text, Title, SubTitle, Code, Link } from './components/Typo';
+import { Text, Title, SubTitle, Code, Link, Button } from './components/Typo';
 import Arrow from './components/Arrow';
 import PrezLink, { HttpsPart } from './components/PrezLink';
+import { TIME_MODE } from './utils/TimeModeCtx';
 // import { CodeSurfer } from "mdx-deck-code-surfer";
 // import SyntaxHighlighter from 'react-syntax-highlighter';
 import imgDevtool1 from './images/devtool-01.png';
@@ -163,7 +165,7 @@ import imgVersions from './images/versions.png';
 <Appear>
   <Text>Just mutate the state</Text>
   <Text>Uses Proxy under the hood to track changes</Text>
-  <Code>Can't mutate outside of an action</Code>
+  <Text>Can't mutate outside of an action</Text>
 </Appear>
 
 ---
@@ -194,6 +196,28 @@ import imgVersions from './images/versions.png';
 
 <Title>Pipe Action</Title>
 
+<SubTitle>
+  <Link href="https://github.com/christianalfoni/op-op-spec/blob/master/README.md">op-op-spec</Link>
+</SubTitle>
+
+<Steps>
+  <div>
+    <MdxCode className="language-typescript" >{`function operator (err, value, next, final = next) {}`}</MdxCode>
+  </div>
+    <div>
+    <MdxCode className="language-typescript" >{`type Operator<Input, Output = Input> = (
+  err: Error,
+  value: Input,
+  next: (err: Error, value: Output),
+  final: (err: Error, value: Output)
+) => void`}</MdxCode>
+  </div>
+</Steps>
+
+---
+
+<Title>Pipe Action</Title>
+
 <SubTitle>Operations</SubTitle>
 
 <Appear>
@@ -206,11 +230,31 @@ import imgVersions from './images/versions.png';
   <Text>...</Text>
 </Appear>
 
-<!-- --- 
+---
 
 <CodeSurfer
-  title={() => <Title>Pipe Action</Title>}
-  code={require("!raw-loader!./code-samples/pipe.js")}
+  neverFast={true}
+  title={() => <Title>Pipe Operator</Title>}
+  code={require("!raw-loader!./code-samples/pipe-operator.ts")}
+  lang="typescript"
+  showNumbers={false}
+  dark={true}
+  steps={[
+    {},
+    { lines: [1, 11] },
+    { lines: [2, 10] },
+    { lines: [3] },
+    { range: [4, 9] },
+    {}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  neverFast={true}
+  title={() => <Title>Pipe Operator</Title>}
+  code={require("!raw-loader!./code-samples/pipe.ts")}
   lang="javascript"
   showNumbers={false}
   dark={true}
@@ -226,7 +270,6 @@ import imgVersions from './images/versions.png';
     {}
   ]}
 />
--->
 
 ---
 
@@ -254,6 +297,40 @@ import imgVersions from './images/versions.png';
   <SubTitle> ☝️ but not semver</SubTitle>
   <Image height="50vh" src={imgVersions} />
 </Appear>
+
+---
+
+<Title>Do we have time for the API ?</Title>
+
+<GoTo>{({ update, setTimeMode }) => (
+  <Button onClick={() => {
+    setTimeMode(TIME_MODE.normal)
+    update(updaters.next);
+    if (document.activeElement) {
+      document.activeElement.blur()
+    }
+  }}>Yep</Button>
+)}</GoTo>
+
+<GoTo>{({ update, setTimeMode }) => (
+  <Button warning onClick={() => {
+    setTimeMode(TIME_MODE.fast)
+    update(updaters.next)
+    if (document.activeElement) {
+      document.activeElement.blur()
+    }
+  }}>Not really</Button>
+)}</GoTo>
+
+<GoTo>{({ update, setTimeMode }) => (
+  <Button danger onClick={() => {
+    setTimeMode(TIME_MODE.fast)
+    update({ index: 30 })
+    if (document.activeElement) {
+      document.activeElement.blur()
+    }
+  }}>Hell No</Button>
+)}</GoTo>
 
 ---
 
@@ -376,6 +453,7 @@ import imgVersions from './images/versions.png';
 ---
 
 <CodeSurfer
+  neverFast={true}
   title={() => <Title>App</Title>}
   code={require("!raw-loader!./code-samples/app.ts")}
   lang="typescript"
@@ -395,6 +473,7 @@ import imgVersions from './images/versions.png';
 ---
 
 <CodeSurfer
+  neverFast={true}
   title={() => <Title>Connecting a view</Title>}
   code={require("!raw-loader!./code-samples/connect.ts")}
   lang="typescript"
@@ -413,6 +492,7 @@ import imgVersions from './images/versions.png';
 ---
 
 <CodeSurfer
+  neverFast={true}
   title={() => <Title>Using connect</Title>}
   code={require("!raw-loader!./code-samples/view.tsx")}
   lang="typescript"

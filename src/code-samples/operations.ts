@@ -15,16 +15,3 @@ export const setQuery = mutate(
     state.query = query;
   }
 );
-
-export const setResultFetching = mutate(
-  ({ state }) => {
-    state.data.loading = true;
-  }
-);
-
-export const setResult = mutate(
-  ({ state, value: result }) => {
-    state.data.loading = false;
-    state.data.result = result;
-  }
-);

@@ -1,4 +1,4 @@
-const onQueryInputChangeAction = pipe(
+pipe(
   mutate(setQuery),
   debounce(200),
   filter(isQueryNotEmpty),
