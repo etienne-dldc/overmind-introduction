@@ -8,8 +8,6 @@ import tsx from 'react-syntax-highlighter/languages/prism/tsx';
 registerLanguage('typescript', typescript);
 registerLanguage('tsx', tsx);
 
-// import * as MdxDeck from 'mdx-deck';
-// console.log(MdxDeck);
 import imgDevtool1 from './images/devtool-01.png';
 import imgDevtool2 from './images/devtool-02.png';
 import imgDevtool3 from './images/devtool-03.png';
