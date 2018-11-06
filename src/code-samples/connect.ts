@@ -3,7 +3,7 @@ import {
   createConnect
 } from "overmind-react";
 
-const app = new Overmind /*  */();
+const app = new Overmind(config);
 
 export type Connect = TConnect<typeof app>;
 

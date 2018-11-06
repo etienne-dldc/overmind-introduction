@@ -148,6 +148,26 @@ import imgVersions from './images/versions.png';
 
 ---
 
+<Title>Context</Title>
+
+<Appear>
+  <Code>...Effects</Code>
+  <Code>state</Code>
+  <Code>value</Code>
+</Appear>
+
+---
+
+<Title>Mutation</Title>
+
+<Appear>
+  <Text>Just mutate the state</Text>
+  <Text>Uses Proxy under the hood to track changes</Text>
+  <Code>Can't mutate outside of an action</Code>
+</Appear>
+
+---
+
 <Title>Pipe Action</Title>
 
 <Steps>
@@ -186,7 +206,7 @@ import imgVersions from './images/versions.png';
   <Text>...</Text>
 </Appear>
 
----
+<!-- --- 
 
 <CodeSurfer
   title={() => <Title>Pipe Action</Title>}
@@ -206,6 +226,7 @@ import imgVersions from './images/versions.png';
     {}
   ]}
 />
+-->
 
 ---
 
@@ -215,6 +236,14 @@ import imgVersions from './images/versions.png';
   <Image height="70vh" src={imgDevtool1} />
   <Image height="70vh" src={imgDevtool2} />
   <Image height="70vh" src={imgDevtool3} />
+</Steps>
+
+---
+
+<Title>Running the Devtools</Title>
+
+<Steps>
+  <Code>npx overmind-devtools</Code>
 </Steps>
 
 ---
@@ -355,10 +384,10 @@ import imgVersions from './images/versions.png';
   steps={[
     {},
     { lines: [1], notes: "We import Overmind" },
-    { range: [3, 7] , notes: "Declaring a config object"},
-    { lines: [13] , notes: "Then instantiate the app"},
-    { range: [9, 11] , notes: "Hacky things to get awesome typing !"},
-    { lines: [1, 9, 10, 11] , notes: "Just copy paste it once then forget it"},
+    { range: [3, 7], notes: "Declaring a config object"},
+    { lines: [13], notes: "Then instantiate the app"},
+    { lines: [1, 9, 10, 11], notes: "Hacky things to get awesome typing !"},
+    { lines: [1, 9, 10, 11], notes: "Just copy paste it once then forget it"},
     {},
   ]}
 />
