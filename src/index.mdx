@@ -1,5 +1,5 @@
 import OvermindLogo from './components/OvermindLogo';
-import { Head, Notes, Code as MdxCode, updaters } from 'mdx-deck'
+import { Head, Notes, Code as MdxCode, updaters } from 'mdx-deck';
 import Quote from './components/Quote';
 import Appear from './components/Appear';
 import Steps from './components/Steps';
@@ -22,12 +22,14 @@ import imgVersions from './images/versions.png';
 
 <Head>
   <title>Overmind - TypeScript Paris - Etienne Dldc</title>
-  <meta name='og:image' content='https://paris-ts.etienne-dot-js.com/card.png' />
+  <meta name="og:image" content="https://overmind-talk.etienne.tech/card.png" />
 </Head>
 
 <Title>Hi 👋</Title>
 
-<PrezLink href="https://paris-ts.etienne-dot-js.com"><HttpsPart>https://</HttpsPart>paris-ts.etienne-dot-js.com</PrezLink>
+<PrezLink href="https://overmind-talk.etienne.tech">
+  <HttpsPart>https://</HttpsPart>overmind-talk.etienne.tech
+</PrezLink>
 
 ---
 
@@ -41,13 +43,13 @@ import imgVersions from './images/versions.png';
   <Text>State Management library 👷‍</Text>
   <Text>Manage everything but the view 🧠</Text>
   <Text>Supports React, Vue & Angular ✨</Text>
-  <Text>By the team behind <Link href="https://cerebraljs.com/">CerebralJS</Link> 🚀 </Text>
+  <Text>
+    By the team behind <Link href="https://cerebraljs.com/">CerebralJS</Link> 🚀{' '}
+  </Text>
   <Text>Made with TS, for TS 🚀</Text>
 </Appear>
 
-<Notes>
-  Overmind is state management library, but in manage more than just the state.
-</Notes>
+<Notes>Overmind is state management library, but in manage more than just the state.</Notes>
 
 ---
 
@@ -55,7 +57,9 @@ import imgVersions from './images/versions.png';
 
 <Appear>
   <Text>👨‍🎓 Master degree at Gobelins</Text>
-  <Text>⚛ React trainer & dev & consultant <Link href="https://twitter.com/LeReacteurIO">@LeReacteurIO</Link></Text>
+  <Text>
+    ⚛ React trainer & dev & consultant <Link href="https://twitter.com/LeReacteurIO">@LeReacteurIO</Link>
+  </Text>
   <Text>🖥 Freelance</Text>
 </Appear>
 
@@ -65,7 +69,8 @@ import imgVersions from './images/versions.png';
 
 <Appear>
   <Quote author="Wikipedia">
-    " A mental model is a representation of the surrounding world, the relationships between its various parts and a person's intuitive perception about his or her own acts and their consequences. "
+    " A mental model is a representation of the surrounding world, the relationships between its various parts and a
+    person's intuitive perception about his or her own acts and their consequences. "
   </Quote>
 </Appear>
 
@@ -74,16 +79,25 @@ import imgVersions from './images/versions.png';
 <Title>In Programming</Title>
 
 <Appear>
-  <Text>In programming, mental model is about understanding what your program does and how you have to change it to acheive what you want.</Text>
+  <Text>
+    In programming, mental model is about understanding what your program does and how you have to change it to acheive
+    what you want.
+  </Text>
 </Appear>
 
 ---
 
-<Title>Libraries help us shape <br /> the mental model of our apps</Title>
+<Title>
+  Libraries help us shape <br /> the mental model of our apps
+</Title>
 
 <Appear>
-  <Text>React <Arrow /> Components</Text>
-  <Text>Redux <Arrow /> Action, Reducer</Text>
+  <Text>
+    React <Arrow /> Components
+  </Text>
+  <Text>
+    Redux <Arrow /> Action, Reducer
+  </Text>
 </Appear>
 
 ---
@@ -91,8 +105,12 @@ import imgVersions from './images/versions.png';
 <Title>Naming is important</Title>
 
 <Appear>
-  <Text>Presentational <Arrow double={true} /> Container Components</Text>
-  <Text><code>render</code> <Arrow double={true} /> <code>handleInputChange</code></Text>
+  <Text>
+    Presentational <Arrow double={true} /> Container Components
+  </Text>
+  <Text>
+    <code>render</code> <Arrow double={true} /> <code>handleInputChange</code>
+  </Text>
 </Appear>
 
 ---
@@ -175,17 +193,11 @@ import imgVersions from './images/versions.png';
 <CodeSurfer
   neverFast={true}
   title={() => <Title>Action</Title>}
-  code={require("!raw-loader!./code-samples/simple-action.ts")}
+  code={require('!raw-loader!./code-samples/simple-action.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
-  steps={[
-    {},
-    { range: [1, 5] },
-    { range: [6, 9] },
-    { lines: [12, 13] },
-    {}
-  ]}
+  steps={[{}, { range: [1, 5] }, { range: [6, 9] }, { lines: [12, 13] }, {}]}
 />
 
 ---
@@ -222,10 +234,10 @@ import imgVersions from './images/versions.png';
 
 <Steps>
   <div>
-    <MdxCode className="language-typescript" >{`function operator (err, value, next, final = next) {}`}</MdxCode>
+    <MdxCode className="language-typescript">{`function operator (err, value, next, final = next) {}`}</MdxCode>
   </div>
-    <div>
-    <MdxCode className="language-typescript" >{`type Operator<Input, Output = Input> = (
+  <div>
+    <MdxCode className="language-typescript">{`type Operator<Input, Output = Input> = (
   err: Error,
   value: Input,
   next: (err: Error, value: Output) => void,
@@ -256,8 +268,7 @@ import imgVersions from './images/versions.png';
 
 <SubTitle>Operators</SubTitle>
 
-<MdxCode className="language-typescript">{
-`const mutate = (
+<MdxCode className="language-typescript">{`const mutate = (
   doMutation: (context: Context) => void
 ): Operator => {
   // ...
@@ -269,8 +280,7 @@ import imgVersions from './images/versions.png';
 
 <SubTitle>Operators</SubTitle>
 
-<MdxCode className="language-typescript">{
-`const setIsLoading = mutate(({ state, value }) => {
+<MdxCode className="language-typescript">{`const setIsLoading = mutate(({ state, value }) => {
   state.isLoading = value
 })`}</MdxCode>
 
@@ -279,17 +289,11 @@ import imgVersions from './images/versions.png';
 <CodeSurfer
   neverFast={true}
   title={() => <Title>Pipe Operator</Title>}
-  code={require("!raw-loader!./code-samples/pipe-operator.ts")}
+  code={require('!raw-loader!./code-samples/pipe-operator.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
-  steps={[
-    {},
-    { lines: [1, 11] },
-    { lines: [2, 10] },
-    { range: [5, 8] },
-    {}
-  ]}
+  steps={[{}, { lines: [1, 11] }, { lines: [2, 10] }, { range: [5, 8] }, {}]}
 />
 
 ---
@@ -297,16 +301,11 @@ import imgVersions from './images/versions.png';
 <CodeSurfer
   neverFast={true}
   title={() => <Title>Pipe Operator</Title>}
-  code={require("!raw-loader!./code-samples/pipe.ts")}
+  code={require('!raw-loader!./code-samples/pipe.ts')}
   lang="javascript"
   showNumbers={false}
   dark={true}
-  steps={[
-    {},
-    { lines: [1, 6] },
-    { range: [2, 5] },
-    {}
-  ]}
+  steps={[{}, { lines: [1, 6] }, { range: [2, 5] }, {}]}
 />
 
 ---
@@ -340,49 +339,69 @@ import imgVersions from './images/versions.png';
 
 <Title>Do we have time for more API ?</Title>
 
-<GoTo>{({ update, setTimeMode }) => (
-  <Button onClick={() => {
-    setTimeMode(TIME_MODE.normal)
-    update(updaters.next);
-    if (document.activeElement) {
-      document.activeElement.blur()
-    }
-  }}>Yep</Button>
-)}</GoTo>
+<GoTo>
+  {({ update, setTimeMode }) => (
+    <Button
+      onClick={() => {
+        setTimeMode(TIME_MODE.normal);
+        update(updaters.next);
+        if (document.activeElement) {
+          document.activeElement.blur();
+        }
+      }}
+    >
+      Yep
+    </Button>
+  )}
+</GoTo>
 
-<GoTo>{({ update, setTimeMode }) => (
-  <Button warning onClick={() => {
-    setTimeMode(TIME_MODE.fast)
-    update(updaters.next)
-    if (document.activeElement) {
-      document.activeElement.blur()
-    }
-  }}>Not really</Button>
-)}</GoTo>
+<GoTo>
+  {({ update, setTimeMode }) => (
+    <Button
+      warning
+      onClick={() => {
+        setTimeMode(TIME_MODE.fast);
+        update(updaters.next);
+        if (document.activeElement) {
+          document.activeElement.blur();
+        }
+      }}
+    >
+      Not really
+    </Button>
+  )}
+</GoTo>
 
-<GoTo>{({ update, setTimeMode }) => (
-  <Button danger onClick={() => {
-    setTimeMode(TIME_MODE.fast)
-    update({ index: 34 })
-    if (document.activeElement) {
-      document.activeElement.blur()
-    }
-  }}>Hell No !</Button>
-)}</GoTo>
+<GoTo>
+  {({ update, setTimeMode }) => (
+    <Button
+      danger
+      onClick={() => {
+        setTimeMode(TIME_MODE.fast);
+        update({ index: 34 });
+        if (document.activeElement) {
+          document.activeElement.blur();
+        }
+      }}
+    >
+      Hell No !
+    </Button>
+  )}
+</GoTo>
 
 ---
 
 <CodeSurfer
   title={() => <Title>State</Title>}
-  code={require("!raw-loader!./code-samples/state.ts")}
+  code={require('!raw-loader!./code-samples/state.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { range: [1, 5], notes: "Some types" },
-    { range: [7, 9], notes: "State types" },
-    { range: [11, 19], notes: "Initial state" },
+    { range: [1, 5], notes: 'Some types' },
+    { range: [7, 9], notes: 'State types' },
+    { range: [11, 19], notes: 'Initial state' },
   ]}
 />
 
@@ -390,18 +409,18 @@ import imgVersions from './images/versions.png';
 
 <CodeSurfer
   title={() => <Title>Derive</Title>}
-  code={require("!raw-loader!./code-samples/derive.ts")}
+  code={require('!raw-loader!./code-samples/derive.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { lines: [1], notes: "Import the Derive type" },
-    { lines: [3, 4], notes: "Derive is a function..." },
-    { lines: [3, 4], notes: "...receiving the state..." },
-    { lines: [4], notes: "...and returning a value" },
-    { lines: [13], notes: "Then you just add it to the state" },
-    {}
+    { lines: [1], notes: 'Import the Derive type' },
+    { lines: [3, 4], notes: 'Derive is a function...' },
+    { lines: [3, 4], notes: '...receiving the state...' },
+    { lines: [4], notes: '...and returning a value' },
+    { lines: [13], notes: 'Then you just add it to the state' },
+    {},
   ]}
 />
 
@@ -409,13 +428,13 @@ import imgVersions from './images/versions.png';
 
 <CodeSurfer
   title={() => <Title>Effects</Title>}
-  code={require("!raw-loader!./code-samples/effects.ts")}
+  code={require('!raw-loader!./code-samples/effects.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { range: [1, 5], notes: "Just define a function or anything" },
+    { range: [1, 5], notes: 'Just define a function or anything' },
     { range: [7, 9], notes: "Typescript will infer it's type" },
   ]}
 />
@@ -424,19 +443,19 @@ import imgVersions from './images/versions.png';
 
 <CodeSurfer
   title={() => <Title>Actions</Title>}
-  code={require("!raw-loader!./code-samples/actions.ts")}
+  code={require('!raw-loader!./code-samples/actions.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { lines: [1] , notes: "Import stuff from overmind" },
-    { range: [2, 8], notes: "Action receive the context" },
-    { lines: [9], notes: "Asynchronous call" },
-    { lines: [11], notes: "using effect" },
-    { lines: [16], notes: "Mutation" },
-    { range: [19, 21] , notes: "The we just put it in an object" },
-    {}
+    { lines: [1], notes: 'Import stuff from overmind' },
+    { range: [2, 8], notes: 'Action receive the context' },
+    { lines: [9], notes: 'Asynchronous call' },
+    { lines: [11], notes: 'using effect' },
+    { lines: [16], notes: 'Mutation' },
+    { range: [19, 21], notes: 'The we just put it in an object' },
+    {},
   ]}
 />
 
@@ -444,22 +463,22 @@ import imgVersions from './images/versions.png';
 
 <CodeSurfer
   title={() => <Title>Pipe Actions</Title>}
-  code={require("!raw-loader!./code-samples/pipe-actions.ts")}
+  code={require('!raw-loader!./code-samples/pipe-actions.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { lines: [1] , notes: "Import stuff from overmind" },
-    { range: [2, 8], notes: "Import operations from a separate files" },
-    { lines: [10, 11, 12, 19], notes: "We use the pipe() function" },
+    { lines: [1], notes: 'Import stuff from overmind' },
+    { range: [2, 8], notes: 'Import operations from a separate files' },
+    { lines: [10, 11, 12, 19], notes: 'We use the pipe() function' },
     { lines: [13] },
     { lines: [14] },
     { lines: [15] },
     { lines: [16] },
     { lines: [17] },
     { lines: [18] },
-    { range: [21, 23] , notes: "Then we just put it in an object" },
+    { range: [21, 23], notes: 'Then we just put it in an object' },
   ]}
 />
 
@@ -467,22 +486,22 @@ import imgVersions from './images/versions.png';
 
 <CodeSurfer
   title={() => <Title>Operations</Title>}
-  code={require("!raw-loader!./code-samples/operations.ts")}
+  code={require('!raw-loader!./code-samples/operations.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { lines: [2], notes: "Imports" },
+    { lines: [2], notes: 'Imports' },
     { range: [4, 6] },
-    { lines: [5], notes: "we receive the context" },
-    { lines: [5], notes: "with the value in it" },
+    { lines: [5], notes: 'we receive the context' },
+    { lines: [5], notes: 'with the value in it' },
     { range: [8, 11] },
-    { lines: [9], notes: "The context also have effects" },
-    { range: [13, 17], notes: "Mutation" },
-    { lines: [14], notes: "The context has state" },
-    { lines: [15], notes: "We just mutate the state" },
-    { lines: [15], notes: "Under the hood it uses Proxy" },
+    { lines: [9], notes: 'The context also have effects' },
+    { range: [13, 17], notes: 'Mutation' },
+    { lines: [14], notes: 'The context has state' },
+    { lines: [15], notes: 'We just mutate the state' },
+    { lines: [15], notes: 'Under the hood it uses Proxy' },
     { lines: [15], notes: "You can't mutate outside of `mutate` operation" },
     {},
   ]}
@@ -493,17 +512,17 @@ import imgVersions from './images/versions.png';
 <CodeSurfer
   neverFast={true}
   title={() => <Title>App</Title>}
-  code={require("!raw-loader!./code-samples/app.ts")}
+  code={require('!raw-loader!./code-samples/app.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { lines: [1], notes: "We import Overmind" },
-    { range: [3, 7], notes: "Declaring a config object"},
-    { lines: [13], notes: "Then instantiate the app"},
-    { lines: [1, 9, 10, 11], notes: "Hacky things to get awesome typing !"},
-    { lines: [1, 9, 10, 11], notes: "Just copy paste it once then forget it"},
+    { lines: [1], notes: 'We import Overmind' },
+    { range: [3, 7], notes: 'Declaring a config object' },
+    { lines: [13], notes: 'Then instantiate the app' },
+    { lines: [1, 9, 10, 11], notes: 'Hacky things to get awesome typing !' },
+    { lines: [1, 9, 10, 11], notes: 'Just copy paste it once then forget it' },
     {},
   ]}
 />
@@ -513,16 +532,16 @@ import imgVersions from './images/versions.png';
 <CodeSurfer
   neverFast={true}
   title={() => <Title>Connecting a view</Title>}
-  code={require("!raw-loader!./code-samples/connect.ts")}
+  code={require('!raw-loader!./code-samples/connect.ts')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { lines: [3], notes: "Import createConnect function" },
-    { lines: [4] , notes: "From a separate package"},
-    { lines: [10] , notes: "Create the connect"},
-    { lines: [8] , notes: "Type of app prop (see next slide)"},
+    { lines: [3], notes: 'Import createConnect function' },
+    { lines: [4], notes: 'From a separate package' },
+    { lines: [10], notes: 'Create the connect' },
+    { lines: [8], notes: 'Type of app prop (see next slide)' },
     {},
   ]}
 />
@@ -532,21 +551,21 @@ import imgVersions from './images/versions.png';
 <CodeSurfer
   neverFast={true}
   title={() => <Title>Using connect</Title>}
-  code={require("!raw-loader!./code-samples/view.tsx")}
+  code={require('!raw-loader!./code-samples/view.tsx')}
   lang="typescript"
   showNumbers={false}
   dark={true}
   steps={[
     {},
-    { lines: [2], notes: "import from app" },
-    { lines: [24], notes: "connect is a HOC" },
-    { lines: [4], notes: "Connect type contains app" },
-    { lines: [14], notes: "Use app.state to access the state" },
-    { lines: [14], notes: "Overmind knows this component uses app.state.newTodoTitle" },
-    { lines: [14], notes: "and will automatically update if this state change" },
-    { lines: [14], notes: "This works because ✨ Proxy ✨" },
-    { lines: [15], notes: "Actions are on app.actions" },
-    { lines: [15], notes: "The value passed to the action will be passed as context.value" },
+    { lines: [2], notes: 'import from app' },
+    { lines: [24], notes: 'connect is a HOC' },
+    { lines: [4], notes: 'Connect type contains app' },
+    { lines: [14], notes: 'Use app.state to access the state' },
+    { lines: [14], notes: 'Overmind knows this component uses app.state.newTodoTitle' },
+    { lines: [14], notes: 'and will automatically update if this state change' },
+    { lines: [14], notes: 'This works because ✨ Proxy ✨' },
+    { lines: [15], notes: 'Actions are on app.actions' },
+    { lines: [15], notes: 'The value passed to the action will be passed as context.value' },
     {},
   ]}
 />
@@ -556,10 +575,14 @@ import imgVersions from './images/versions.png';
 <div style={{ position: 'relative' }}>
   <Title>That's it, thanks</Title>
   <Appear>
-    <SubTitle><Link href="https://next.overmindjs.org/">next.overmindjs.org</Link></SubTitle>
+    <SubTitle>
+      <Link href="https://next.overmindjs.org/">next.overmindjs.org</Link>
+    </SubTitle>
     <SubTitle>Questions ?</SubTitle>
     <div style={{ position: 'absolute', width: '80vw', transform: 'translate(-50%, 10vh) scale(0.8)', left: '50%' }}>
-      <Text>PS: I'm on 🐦 <Link href="https://twitter.com/Etienne_dot_js">@Etienne_dot_js</Link></Text>
+      <Text>
+        PS: I'm on 🐦 <Link href="https://twitter.com/Etienne_dot_js">@Etienne_dot_js</Link>
+      </Text>
     </div>
   </Appear>
 </div>

@@ -9,7 +9,7 @@
     "pdf": "mdx-deck pdf src/index.js",
     "screenshot": "mdx-deck screenshot src/index.js",
     "build:all": "rimraf dist && yarn build && yarn pdf && yarn screenshot",
-    "deploy": "yarn build:all && tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./dist/* && npx captainduckduck deploy -t ./deploy.tar"
+    "deploy": "yarn build:all && tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./dist/* && npx caprover deploy -t ./deploy.tar"
   },
   "repository": {
     "type": "git",
